@@ -1,0 +1,297 @@
+ <!-- creer test -->
+<ng-container *ngIf="!testcreated">
+  <div class="card mb-5 mt-6 mb-xl-10">
+    <div class="card-header border-0 cursor-pointer"
+         role="button"
+         data-bs-toggle="collapse"
+         data-bs-target="#kt_account_profile_details"
+         aria-expanded="true"
+         aria-controls="kt_account_profile_details">
+      <div class="card-title m-0">
+        <h3 class="fw-bolder m-0">Test </h3>
+      </div>
+    </div>
+    <div id="kt_account_profile_details" class="collapse show">
+      <form novalidate="" class="form" (ngSubmit)="insertData()">
+        <div class="card-body border-top p-9">
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label required fw-bold fs-6">Date de test</label>
+            <div class="col-lg-8 fv-row">
+              <input type="date"
+                     class="form-control form-control-lg form-control-solid"
+                     placeholder="Test Date "
+                     name="test_date"
+                     value=""
+                     [(ngModel)]="test.test_date" required />
+            </div>
+          </div>
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">name</span></label>
+            <div class="col-lg-8 fv-row">
+              <input type="text"
+                     class="form-control form-control-lg form-control-solid"
+                     placeholder="name..."
+                     name="name"
+                     value=""
+                     [(ngModel)]="test.name" required />
+            </div>
+          </div>
+          <div class="row fv-row mb-7">
+            <label class="col-lg-4 col-form-label required fw-bold fs-6">Axe</label>
+            <div class="col-lg-8 fv-row">
+              <select class="form-select form-select-solid form-select-lg"
+                      name="id_student"
+                      [(ngModel)]="axe.id">
+                <option *ngFor="let stu of axes " [ngValue]=" stu.id ">  {{ stu.resume }}  </option>
+              </select>
+              <div class="fv-help-block">
+                selectionner un axe
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end py-6 px-9">
+          <button type="button"
+                  class="btn btn-outline-primary"
+                  (click)="insertData()">
+            <ng-container><strong>Valider</strong></ng-container>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- affichage des test-->
+  <div class="table-responsive">
+    <table class="table align-middle gs-0 gy-4  ">
+      <thead>
+        <tr class="fw-bolder text-muted bg-light">
+          <th class="ps-4 min-w-125px rounded-start">nom</th>
+          <th class="min-w-125px">axe</th>
+          <th class="min-w-125px">question</th>
+          <th class="min-w-125px">reponses</th>
+          <th class="min-w-125px"></th>
+        </tr>
+      <!-- begin::Table body -->
+      <tbody>
+        <ng-container *ngFor="let sub of testAxe.data ">
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column" *ngFor="let element of res">
+                  <a href="#"
+                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                    <div class="check-div" *ngIf="displayCondition(element.id, sub.id_test)"> {{element.name}} </div>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+ 
+            </td>
+            <td>
+              <a href="#"
+                 class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                test
+              </a>
+            </td>
+            <td>
+              <a href="#"
+                 class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                test
+              </a>
+            </td>
+
+
+            <td class="text-end">
+
+              <button type="button" (click)="deletequestion(sub.id)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                ">
+                <span [inlineSVG]="
+                    './assets/media/icons/duotune/general/gen027.svg'
+                  "
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <!-- end::Table body -->
+    </table>
+
+    <!-- end::Table -->
+  </div>
+</ng-container>
+<!-- creer question ET REPONSE-->
+<ng-container *ngIf="testcreated">
+
+  <!-- creer question-->
+  <ng-container *ngIf="!quecreated">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <div class="alert alert-success alert-dismissible fade in">
+      Test :<strong>{{ test.name }}</strong> a été avec succés.
+    </div>
+    <div class="card-header border-0 cursor-pointer"
+         role="button"
+         data-bs-toggle="collapse"
+         data-bs-target="#kt_account_profile_details"
+         aria-expanded="true"
+         aria-controls="kt_account_profile_details">
+      <div class="card-title m-0">
+        <h3 class="fw-bolder m-0">Question </h3>
+      </div>
+
+      <div id="kt_account_profile_details" class="collapse show">
+        <form novalidate="" class="forme" (ngSubmit)="insertData()">
+          <div class="card-body border-top p-9">
+
+            <div class="row mb-6">
+              <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">resume</span></label>
+              <div class="col-lg-8 fv-row">
+                <input class="form-control form-control-lg form-control-solid"
+                       placeholder="resume..."
+                       name="resume"
+                       value=""
+                       [(ngModel)]="que.resume" />
+              </div>
+            </div>
+
+            <div class="row mb-6">
+              <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">details</span></label>
+              <div class="col-lg-8 fv-row">
+                <input class="form-control form-control-lg form-control-solid"
+                       placeholder="details..."
+                       name="details"
+                       value=""
+                       [(ngModel)]="que.details" />
+              </div>
+            </div>
+
+            <div class="row mb-6">
+              <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">type</span></label>
+              <div class="col-lg-8 fv-row">
+                <input class="form-control form-control-lg form-control-solid"
+                       placeholder="type..."
+                       name="type"
+                       value=""
+                       [(ngModel)]="que.type" />
+              </div>
+            </div>
+            <div class="row fv-row mb-7">
+              <label class="col-lg-4 col-form-label required fw-bold fs-6">Language</label>
+              <div class="col-lg-8 fv-row">
+                <select class="form-select form-select-solid form-select-lg"
+                        name="id_language"
+                        [(ngModel)]="que.id_language">
+                  <option *ngFor="let lang of langs " [ngValue]=" lang.id ">  {{ lang.iso_code }}  </option>
+                </select>
+                <div class="fv-help-block">
+                  Please select a preferred langue
+                </div>
+              </div>
+            </div>
+            <div class="row fv-row mb-7">
+              <label class="col-lg-4 col-form-label required fw-bold fs-6">categorie</label>
+              <div class="col-lg-8 fv-row">
+                <select class="form-select form-select-solid form-select-lg"
+                        name="id_category"
+                        [(ngModel)]="que.id_category">
+                  <option *ngFor="let cat of cats " [ngValue]=" cat.id ">  {{ cat.detail }}  </option>
+                </select>
+                <div class="fv-help-block">
+                  Please select a preferred category
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer d-flex justify-content-end py-6 px-9">
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="insertDataQ()">
+              <strong>Ajouter</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-container>
+  <!-- creer les reponses-->
+
+  <ng-container *ngIf="quecreated">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <div class="alert alert-success alert-dismissible fade in">
+      Question :<strong>{{ ques.resume }}</strong> a été avec succés.
+    </div>
+    <div class="alert alert-info alert-dismissible fade in">
+      nombe de reponse ajoutés :<strong>{{ numR }}</strong>  avec succés.
+    </div>
+    <div class="card-header border-0 cursor-pointer"
+         role="button"
+         data-bs-toggle="collapse"
+         data-bs-target="#kt_account_profile_details"
+         aria-expanded="true"
+         aria-controls="kt_account_profile_details">
+      <div class="card-title m-0">
+        <h3 class="fw-bolder m-0">Reponse </h3>
+      </div>
+    </div>
+    <div id="kt_account_profile_details" class="collapse show">
+      <form novalidate="" class="form" (ngSubmit)="insertData()">
+        <div class="card-body border-top p-9">
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label required fw-bold fs-6">resume</label>
+            <div class="col-lg-8 fv-row">
+              <input type="text"
+                     class="form-control form-control-lg form-control-solid"
+                     placeholder="resume ... "
+                     name="resume"
+                     value=""
+                     [(ngModel)]="weight.resume" />
+            </div>
+          </div>
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">value</span></label>
+            <div class="col-lg-8 fv-row">
+              <input type="number"
+                     class="form-control form-control-lg form-control-solid"
+                     placeholder="valeur..."
+                     name="valeur"
+                     value=""
+                     [(ngModel)]="weight.w_value" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="button"
+                  class="btn btn-primary "
+                  (click)="insertDataR()">
+            <strong>ajouter la reponse</strong>
+          </button>
+        </div>
+        <div class="card-footer d-flex justify-content-end py-6 px-9">
+          <button type="button"
+                  class="btn btn-outline-info"
+                  (click)="qfalse()">
+            <strong> ajouter une autre question </strong>
+          </button>
+          <button type="button"
+                  class="btn btn-outline-primary "
+                  (click)="tfalse()">
+            <strong> ajouter un autre test </strong>
+          </button>
+        </div>
+      </form>
+    </div>
+    <ng-container>
+    </ng-container>
+
+

@@ -1,0 +1,193 @@
+<!-- begin::Header -->
+<!-- formulaire -->
+<div class="card mb-5 mt-6 mb-xl-10">
+  <div class="card-header border-0 cursor-pointer"
+       role="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#kt_account_profile_details"
+       aria-expanded="true"
+       aria-controls="kt_account_profile_details">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Question </h3>
+    </div>
+
+
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form novalidate="" class="form" (ngSubmit)="insertData()">
+      <div class="card-body border-top p-9">
+
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">resume</span></label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid"
+                   placeholder="resume..."
+                   name="resume"
+                   value=""
+                   [(ngModel)]="que.resume" />
+          </div>
+        </div>
+
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">details</span></label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid"
+                   placeholder="details..."
+                   name="details"
+                   value=""
+                   [(ngModel)]="que.details" />
+          </div>
+        </div>
+
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">type</span></label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid"
+                   placeholder="type..."
+                   name="type"
+                   value=""
+                   [(ngModel)]="que.type" />
+          </div>
+        </div>
+
+        <!-- :: -->
+        <div class="row fv-row mb-7">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6">Language</label>
+          <div class="col-lg-8 fv-row">
+            <select class="form-select form-select-solid form-select-lg"
+                    name="id_language"
+                    [(ngModel)]="que.id_language">
+              <option *ngFor="let lang of langs " [ngValue]=" lang.id ">  {{ lang.iso_code }}  </option>
+            </select>
+            <div class="fv-help-block">
+              Please select a preferred langue
+            </div>
+          </div>
+        </div>
+        <div class="row fv-row mb-7">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6">categorie</label>
+          <div class="col-lg-8 fv-row">
+            <select class="form-select form-select-solid form-select-lg"
+                    name="id_category"
+                    [(ngModel)]="que.id_category">
+              <option *ngFor="let cat of cats " [ngValue]=" cat.id ">  {{ cat.detail }}  </option>
+            </select>
+            <div class="fv-help-block">
+              Please select a preferred category
+            </div>
+          </div>
+        </div>
+        <!-- :: -->
+      </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="insertData()">
+          <ng-container>{{ editMode ? 'Modifier':'Ajouter'}}</ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Fin formulaire -->
+<div class="card-header border-0 pt-5 mt-10">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label fw-bolder fs-3 mb-1">Question</span>
+    <span class="text-muted mt-1 fw-bold fs-7"></span>
+  </h3>
+
+  <!-- end::Header -->
+  <!-- begin::Body -->
+  <div class="card-body py-3">
+    <!-- begin::Table container -->
+    <div class="table-responsive">
+      <!-- begin::Table -->
+      <table class="table align-middle gs-0 gy-4  ">
+        <!-- begin::Table head -->
+        <thead>
+          <tr class="fw-bolder text-muted bg-light">
+            <th class="ps-4 min-w-125px rounded-start">language</th>
+            <th class="min-w-125px">category</th>
+            <th class="min-w-125px">resume</th>
+            <th class="min-w-125px">detail</th>
+            <th class="min-w-125px">type</th>
+            <th class="min-w-125px"></th>
+
+          </tr>
+        </thead>
+        <!-- end::Table head -->
+        <!-- begin::Table body -->
+        <tbody>
+          <tr *ngFor="let sub of ques ">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column" *ngFor="let element of langs">
+                  <a href="#"
+                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                    <div class="check-div" *ngIf="displayCondition(element.id, sub.id_language)"> {{element.iso_code}} </div>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column" *ngFor="let element of cats">
+                  <a href="#"
+                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                    <div class="check-div" *ngIf="displayCondition(element.id, sub.id_category)"> {{element.detail}} </div>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="#"
+                 class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{sub.resume}}
+              </a>
+            </td>
+            <td>
+              <a href="#"
+                 class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{sub.details}}
+              </a>
+            </td>
+            <td>
+              <a href="#"
+                 class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{sub.type}}
+              </a>
+            </td>
+           
+            <td class="text-end">
+              <button type="button"
+                      (click)="editData(sub)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                  me-1
+                ">
+                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+              <button type="button" (click)="deletequestion(sub.id)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                ">
+                <span [inlineSVG]="
+                    './assets/media/icons/duotune/general/gen027.svg'
+                  "
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+        <!-- end::Table body -->
+      </table>
+
+      <!-- end::Table -->
+    </div>
+    <!-- end::Table container -->
+  </div>
+  <!-- begin::Body -->
+</div>
+

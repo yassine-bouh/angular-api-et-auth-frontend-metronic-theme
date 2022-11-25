@@ -1,0 +1,23 @@
+
+<div [formGroup]="form">
+  <div class="mb-10 fv-row">
+
+    <!-- :: -->
+    {{ id_test }}
+    <div class="row fv-row mb-7">
+      <label class="col-lg-4 col-form-label required fw-bold fs-6">Axe</label>
+      <div class="col-lg-8 fv-row">
+        <select class="form-select form-select-solid form-select-lg"
+                name="id_student"
+                [(ngModel)]="axe.id">
+          <option *ngFor="let stu of res " [ngValue]=" stu.id ">  {{ stu.resume }}  </option>
+        </select>
+        <div class="fv-help-block">
+          selectionner un axe
+        </div>
+      </div>
+    </div>
+    <!-- :: -->
+  </div>
+  </div>
+

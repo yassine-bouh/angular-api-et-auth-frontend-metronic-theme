@@ -1,0 +1,116 @@
+<!-- begin::Header -->
+<!-- formulaire -->
+<div class="card mb-5 mt-6 mb-xl-10">
+  <div class="card-header border-0 cursor-pointer"
+       role="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#kt_account_profile_details"
+       aria-expanded="true"
+       aria-controls="kt_account_profile_details">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Profile Details</h3>
+    </div>
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form novalidate="" class="form">
+      <div class="card-body border-top p-9">
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6">Resumé</label>
+          <div class="col-lg-8 fv-row">
+            <input type="text"
+                   class="form-control form-control-lg form-control-solid"
+                   placeholder="resumé"
+                   name="resume"
+                   value=""
+                   [(ngModel)]="axe.resume" />
+          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="insertData()">
+          <ng-container>{{ editMode ? 'Modifier':'Ajouter'}}</ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Fin formulaire -->
+<div class="card-header border-0 pt-5 mt-10">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label fw-bolder fs-3 mb-1">Subscription</span>
+    <span class="text-muted mt-1 fw-bold fs-7"></span>
+  </h3>
+
+  <!-- end::Header -->
+  <!-- begin::Body -->
+  <div class="card-body py-3">
+    <!-- begin::Table container -->
+    <div class="table-responsive">
+      <!-- begin::Table -->
+      <table class="table align-middle gs-0 gy-4  ">
+        <!-- begin::Table head -->
+        <thead>
+          <tr class="fw-bolder text-muted bg-light">
+            <th class="ps-4 min-w-325px rounded-start">id</th>
+            <th class="min-w-125px">resumé</th>
+            <th class="min-w-125px">details</th>
+            <th class="min-w-125px"></th>
+
+          </tr>
+        </thead>
+        <!-- end::Table head -->
+        <!-- begin::Table body -->
+        <tbody>
+          <tr *ngFor="let axe of res">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column">
+                  <a href="#"
+                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                    {{axe.id}}
+                  </a>
+
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="#"
+                 class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{axe.resume}}
+              </a>
+            </td>
+            <td class="text-end">
+              <button type="button"
+                      (click)="editData(axe)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                  me-1
+                ">
+                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+              <button type="button" (click)="deleteAxes(axe.id)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                ">
+                <span [inlineSVG]="
+                    './assets/media/icons/duotune/general/gen027.svg'
+                  "
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+            </td>
+          </tr>
+
+      </tbody>
+        <!-- end::Table body -->
+      </table>
+
+      <!-- end::Table -->
+    </div>
+    <!-- end::Table container -->
+  </div>
+  <!-- begin::Body -->
+</div>
+

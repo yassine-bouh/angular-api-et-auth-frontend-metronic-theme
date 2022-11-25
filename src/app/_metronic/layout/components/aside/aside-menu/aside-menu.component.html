@@ -1,0 +1,381 @@
+<ng-container *ngIf="isAdminStructure">
+  <!-- Dashboard -->
+  <div class="menu-item">
+    <a class="menu-link without-sub"
+       routerLink="/dashboard"
+       routerLinkActive="active">
+      <span class="menu-icon">
+        <span [inlineSVG]="'./assets/media/icons/duotune/art/art002.svg'"
+              class="svg-icon svg-icon-2"></span>
+      </span>
+      <span class="menu-title" translate="MENU.DASHBOARD"></span>
+    </a>
+  </div>
+
+  <!-- Separator -->
+  <div class="menu-item">
+    <div class="menu-content pt-8 pb-2">
+      <span class="menu-section text-muted text-uppercase fs-8 ls-1">Gestion</span>
+    </div>
+  </div>
+
+  <!-- Gestion structure -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/test">Gestion des tests</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/test">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Test</span>
+        </a>
+      </div>
+    </div><div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/axe">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Axe</span>
+        </a>
+      </div>
+    </div><div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/gestionaaa/a">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">AAA</span>
+        </a>
+      </div>
+    </div>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/poids">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">poids</span>
+        </a>
+      </div>
+    </div>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/categorie">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">categorie</span>
+        </a>
+      </div>
+    </div><div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/question">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">question</span>
+        </a>
+      </div>
+    </div><div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/reponse">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">reponse</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- coach -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/coach/">Gestion des Coachs</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/coach/">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Coachs</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion des niveau -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/level/">Gestion des niveau</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/level/">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Level</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion structure -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/job">Gestion structure</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/job">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Job</span>
+        </a>
+      </div>
+    </div><div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/degree">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Degree</span>
+        </a>
+      </div>
+    </div>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/family_jobs">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Family jobs</span>
+        </a>
+      </div>
+    </div>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/formation">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Formation</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion des packs -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/subscription/">Gestion des packs</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/subscription/">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Subscription</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion des partenaires -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/Gestion_partenaires/partenaire">Gestion des partenaires</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/Gestion_partenaires/partenaire">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Partenaire</span>
+        </a>
+      </div>
+    </div>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/Gestion_partenaires/program">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Program</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion des établissements -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/institution/">Gestion des établissements</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/institution/">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Institution</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion facturation  -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/invoice/">Gestion facturation</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/invoice/">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">invoice</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestion des utilisateur -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="crafted/gestion_utilisateur_roles/utilisateur">Gestion utilisateur roles</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/crafted/gestion_utilisateur_roles/utilisateur">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">utilisateurs</span>
+        </a>
+      </div>
+    </div>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/gestion_utilisateur_roles/role">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">roles</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- parametre  -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com006.svg'"></span>
+      </span><span class="menu-title" data-link="/crafted/parametre/">parametre</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="crafted/parametre/">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">bd</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Separator -->
+  <div class="menu-item">
+    <div class="menu-content pt-8 pb-2">
+      <span class="menu-section text-muted text-uppercase fs-8 ls-1">Apps</span>
+    </div>
+  </div>
+
+  <!-- Chat -->
+  <div class="menu-item menu-accordion"
+       data-kt-menu-trigger="click"
+       routerLinkActive="here show">
+    <span class="menu-link">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/communication/com012.svg'"></span>
+      </span><span class="menu-title" data-link="/apps/chat">Chat</span><span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/apps/chat/private-chat">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Private Chat</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/apps/chat/group-chat">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Group Chart</span>
+        </a>
+      </div>
+      <div class="menu-item">
+        <a class="menu-link without-sub"
+           routerLinkActive="active"
+           routerLink="/apps/chat/drawer-chat">
+          <span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Drawer Chart</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Changelog  -->
+  <div class="menu-item">
+    <a target="_blank" class="menu-link" [href]="appPreviewChangelogUrl">
+      <span class="menu-icon">
+        <span class="svg-icon svg-icon-2"
+              [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"></span>
+      </span>
+      <span class="menu-title">Changelog {{ appAngularVersion }}</span>
+    </a>
+  </div>
+</ng-container> 

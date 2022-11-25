@@ -1,0 +1,65 @@
+<!-- begin::Header -->
+<!-- formulaire -->
+
+
+
+
+  <!-- end::Header -->
+  <!-- begin::Body -->
+  <div class="card-body py-3">
+    <div id="kt_account_profile_details" class="collapse show">
+      <form novalidate="" class="form" (ngSubmit)="insertData()">
+        <div class="card-body border-top p-9">
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label required fw-bold fs-6">Date de test</label>
+            <div class="col-lg-8 fv-row">
+              <input type="date"
+                     class="form-control form-control-lg form-control-solid"
+                     placeholder="Test Date "
+                     name="test_date"
+                     value=""
+                     [(ngModel)]="test.test_date" />
+            </div>
+          </div>
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">name</span></label>
+            <div class="col-lg-8 fv-row">
+              <input type="text"
+                     class="form-control form-control-lg form-control-solid"
+                     placeholder="name..."
+                     name="name"
+                     value=""
+                     [(ngModel)]="test.name" />
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end py-6 px-9">
+          <button type="button"
+                  class="btn btn-primary"
+                  (click)="insertData()">
+            <ng-container>{{ editMode ? 'Saved..':'Save'}}</ng-container>
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- begin::Table container -->
+    <!-- ::
+  <div class="row fv-row mb-7">
+    <label class="col-lg-4 col-form-label required fw-bold fs-6">test</label>
+    <div class="col-lg-8 fv-row">
+      <select class="form-select form-select-solid form-select-lg"
+              name="id"
+              [(ngModel)]="test.id">
+        <option *ngFor="let stu of res " [ngValue]=" stu.id ">  {{ stu.name }}  </option>
+      </select>
+      <div class="fv-help-block">
+         selectionner  un test
+      </div>
+    </div>
+  </div>
+  <!-- :: -->
+    <!-- end::Table -->
+  </div>
+    <!-- end::Table container -->
+
+  <!-- begin::Body -->

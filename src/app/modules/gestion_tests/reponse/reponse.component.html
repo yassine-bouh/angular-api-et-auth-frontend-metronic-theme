@@ -1,0 +1,141 @@
+<!-- begin::Header -->
+<!-- formulaire -->
+<div class="card mb-5 mt-6 mb-xl-10">
+  <div class="card-header border-0 cursor-pointer"
+       role="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#kt_account_profile_details"
+       aria-expanded="true"
+       aria-controls="kt_account_profile_details">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Question </h3>
+    </div>
+
+
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form novalidate="" class="forme" (ngSubmit)="insertData()">
+      <div class="card-body border-top p-9">
+
+
+        <!-- :: -->
+        <div class="row fv-row mb-7">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6">Question</label>
+          <div class="col-lg-8 fv-row">
+            <select class="form-select form-select-solid form-select-lg"
+                    name="id_language"
+                    [(ngModel)]="resp.id_question">
+              <option *ngFor="let que of quest " [ngValue]=" que.id ">  {{ que.resume }}  </option>
+            </select>
+            <div class="fv-help-block">
+              selectionner une question
+            </div>
+          </div>
+        </div>
+        <div class="row fv-row mb-7">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6">poid</label>
+          <div class="col-lg-8 fv-row">
+            <select class="form-select form-select-solid form-select-lg"
+                    name="id_category"
+                    [(ngModel)]="resp.id_weight">
+              <option *ngFor="let weig of weights " [ngValue]=" weig.id ">  {{ weig.resume }}  </option>
+            </select>
+            <div class="fv-help-block">
+              selectionner un poid
+            </div>
+          </div>
+        </div>
+        <!-- :: -->
+      </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="insertData()">
+          <ng-container>{{ editMode ? 'Modifier':'Ajouter'}}</ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Fin formulaire -->
+<div class="card-header border-0 pt-5 mt-10">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label fw-bolder fs-3 mb-1">Question</span>
+    <span class="text-muted mt-1 fw-bold fs-7"></span>
+  </h3>
+
+  <!-- end::Header -->
+  <!-- begin::Body -->
+  <div class="card-body py-3">
+    <!-- begin::Table container -->
+    <div class="table-responsive">
+      <!-- begin::Table -->
+      <table class="table align-middle gs-0 gy-4  ">
+        <!-- begin::Table head -->
+        <thead>
+          <tr class="fw-bolder text-muted bg-light">
+            <th class="ps-4 min-w-125px rounded-start">language</th>
+            <th class="min-w-125px">category</th>
+
+            <th class="min-w-125px"></th>
+
+          </tr>
+        </thead>
+        <!-- end::Table head -->
+        <!-- begin::Table body -->
+        <tbody>
+          <tr *ngFor="let sub of resps ">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column" *ngFor="let element of quest">
+                  <a href="#"
+                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                    <div class="check-div" *ngIf="displayCondition(element.id, sub.id_language)"> {{element.iso_code}} </div>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column" *ngFor="let element of weights">
+                  <a href="#"
+                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                    <div class="check-div" *ngIf="displayCondition(element.id, sub.id_category)"> {{element.detail}} </div>
+                  </a>
+                </div>
+              </div>
+            </td>
+
+            <td class="text-end">
+              <button type="button"
+                      (click)="editData(sub)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                  me-1
+                ">
+                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+              <button type="button" (click)="deleteresponse(sub.id)"
+                      class="
+                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                ">
+                <span [inlineSVG]="
+                    './assets/media/icons/duotune/general/gen027.svg'
+                  "
+                      class="svg-icon svg-icon-3"></span>
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+        <!-- end::Table body -->
+      </table>
+
+      <!-- end::Table -->
+    </div>
+    <!-- end::Table container -->
+  </div>
+  <!-- begin::Body -->
+</div>
+

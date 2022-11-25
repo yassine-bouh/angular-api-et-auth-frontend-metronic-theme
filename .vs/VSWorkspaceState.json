@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\auth",
+    "\\src\\app\\modules\\gestion_tests",
+    "\\src\\app\\modules\\gestion_tests\\axe",
+    "\\src\\app\\modules\\gestion_tests\\axe\\services",
+    "\\src\\app\\modules\\gestion_tests\\question"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\gestion_tests\\axe\\services\\axe.service.ts",
+  "PreviewInSolutionExplorer": false
+}
